@@ -24,40 +24,43 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   };
 
   return (
-    <header className={`shadow fixed w-full z-50 top-0 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
-      <nav className="container mx-auto lg:p-5 px-1 py-2 flex justify-between items-center">
-        <Link className="text-xl font-bold" to="/">
-          Shopping Cart
+    <header className={`shadow-lg fixed w-full z-50 top-0 transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white'}`}>
+      <nav className="container mx-auto lg:px-6 px-4 py-3 flex justify-between items-center">
+        <Link className="text-2xl font-bold" to="/">
+          ShopCart
         </Link>
-        <button className="md:hidden visible absolute right-10" onClick={() => setIsOpen(!isOpen)}>
-          <CiMenuBurger size={25} />
-        </button>
-        <div
-          className={`${
-            isOpen ? 'flex' : 'hidden'
-          } md:flex flex-col md:flex-row gap-5 items-start md:items-center w-full md:w-auto p-3 md:p-0 ${
-            isDarkMode ? 'bg-black' : 'bg-white'
-          } md:relative absolute md:top-0 top-10`}
-        >
-          <Link to="/">Home</Link>
-          <Link to="/products">Products</Link>
-          {user ? (
-            <>
-              <Link to="/cart">Cart</Link>
-              <button className="px-4 py-1 bg-red-500 text-white rounded-lg" onClick={handleLogout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
-            </>
-          )}
+        <div className="flex items-center ml-auto">
+          <div className="hidden md:flex flex-col md:flex-row gap-6 items-center">
+            <Link className="hover:text-gray-300 transition-colors duration-200" to="/">
+              Home
+            </Link>
+            <Link className="hover:text-gray-300 transition-colors duration-200" to="/products">
+              Products
+            </Link>
+            {user ? (
+              <>
+                <Link className="hover:text-gray-300 transition-colors duration-200" to="/cart">
+                  Cart
+                </Link>
+                <button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200" onClick={handleLogout}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link className="hover:text-gray-300 transition-colors duration-200" to="/login">
+                  Login
+                </Link>
+                <Link className="hover:text-gray-300 transition-colors duration-200" to="/register">
+                  Register
+                </Link>
+              </>
+            )}
+          </div>
+          <button className="px-2 py-1 text-xl" onClick={() => setIsDarkMode(!isDarkMode)}>
+            {isDarkMode ? <CiLight size={25} className="text-yellow-400" /> : <CiDark size={25} className="text-gray-800" />}
+          </button>
         </div>
-        <button className="px-2 py-1 text-xl" onClick={() => setIsDarkMode(!isDarkMode)}>
-          {isDarkMode ? <CiLight size={25} /> : <CiDark size={25} />}
-        </button>
       </nav>
     </header>
   );

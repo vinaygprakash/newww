@@ -3,33 +3,46 @@ import img from "/cart.png"
 import { Link } from 'react-router-dom'
 const Hero = () => {
     return (
-        <section>
-            <div className="container mx-auto flex px-5 py-12 md:flex-row flex-col-reverse items-center">
-                <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left  md:mb-0 items-center text-center">
-                    <h1 className=" sm:text-4xl text-3xl mb-4 font-bold">
-                        Welcome To Shopping Cart </h1>
-                    <p className="mb-8 leading-relaxed">
-                        At our online store, we offer a wide range of high-quality products to meet your shopping needs. Whether you're looking for fashion, electronics, home appliances, or any other item, we have it all covered.
-                    </p>
-                    <div className="flex justify-center">
-                        <Link className="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg" to={"/cart"}>
-                            Cart
-                        </Link>
-                        <Link className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg" to={"/products"}>
-                            Products
-                        </Link>
+        <div className="flex flex-col min-h-screen">
+            <section className="bg-blue-100 w-full flex-grow">
+                <div className="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center h-full">
+                    <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left items-center text-center h-full justify-center">
+                        <h1 className="title-font sm:text-5xl text-4xl mb-4 font-bold text-gray-900">
+                            Welcome to Shop Cart
+                        </h1>
+                        <p className="mb-8 leading-relaxed text-gray-700">
+                            Discover Shop Cart, your ultimate destination for premium products ranging from fashion to electronics. Explore a curated selection that combines style and functionality, designed to enhance your lifestyle.
+                        </p>
+                        <p className="mb-8 leading-relaxed text-gray-700">
+                            Enjoy exclusive deals and free shipping on orders over $50. Our user-friendly platform ensures a seamless shopping experience with secure payment options, guaranteeing peace of mind with every purchase.
+                        </p>
+                        <p className="mb-8 leading-relaxed text-gray-700">
+                            Join our community of satisfied customers and stay updated with the latest arrivals and special offers. Subscribe to our newsletter and embark on a journey where quality meets convenience at Shop Cart.
+                        </p>
+                        <div className="flex justify-center gap-4">
+                            <Link to={"/cart"} className="btn-cart text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg">
+                                Cart
+                            </Link>
+                            <Link to={"/products"} className="btn-products text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
+                                Products
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                        <img className="object-cover object-center rounded" alt="hero" src={img} />
                     </div>
                 </div>
-                <div className="lg:max-w-lg lg:w-full md:w-1/3 w-full" id='hero-img'>
-                    <img
-                        className="object-cover object-center rounded p-5"
-                        alt="hero"
-                        src={img}
-                    />
+            </section>
+            <footer className="bg-gray-800 text-white w-full">
+                <div className="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+                    <span className="text-sm text-gray-300 sm:text-center">© 2023 <a href="https://yourwebsite.com" className="hover:underline" target="_blank" rel="noopener noreferrer">Your Website</a>. All Rights Reserved.</span>
+                    <p className="text-right text-sm text-gray-300">Developed By <a href="https://vinayprakash.com" className="underline text-blue-300 hover:text-blue-400" target="_blank" rel="noopener noreferrer">Vinay Prakash</a></p>
                 </div>
-            </div>
-        </section>
-    )
+            </footer>
+        </div>
+    );
+    
+    
 }
 
 export default Hero
