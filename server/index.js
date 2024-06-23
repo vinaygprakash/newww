@@ -61,12 +61,10 @@ mongoose.connect(mongoURL, {
     process.exit(1);
 });
 
-app.use(cors(
-    {
-        origin: ['https://frontend-drab-seven.vercel.app', 'http://localhost:3001'],
-        credentials: true,
-    }
-));
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 
 // Available routes 

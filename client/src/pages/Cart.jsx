@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 import toast from "react-hot-toast"
 
+const host="https://shopcart-backend-ekq6.onrender.com";
+
 const Cart = () => {
   const user = useSelector((state) => state.auth.user)
   const items = useSelector((state) => state.cart.cart)
@@ -13,7 +15,7 @@ const Cart = () => {
   const orderNow = async() =>{
     try{
       setLoading(true)
-      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/cart/checkout`,{
+      const res = await fetch(`${host}/api/cart/checkout`,{
         method:"POST",
         
         headers:{

@@ -1,5 +1,7 @@
+
+const host="https://shopcart-backend-ekq6.onrender.com";
 const getUserFromServer = async() =>{
-    const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/auth/user`,{
+    const res = await fetch(`${host}/api/auth/user`,{
         credentials:'include'
     })
     const data = await res.json()
